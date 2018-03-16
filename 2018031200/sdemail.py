@@ -1,5 +1,6 @@
 # _*_ coding:utf-8 _*_
 
+import re
 import smtplib
 import random
 from email.mime.text import MIMEText
@@ -7,7 +8,7 @@ from email.header import Header
 from email.utils import parseaddr, formataddr
 
 
-class Sendmail():
+class SendEmail():
     """
         作用：
             1.本程序是给指定的邮箱发送邮件。
@@ -17,9 +18,9 @@ class Sendmail():
     """
     def __init__(self, to_addr):
         # 发件人邮箱
-        self.from_addr = 'xxxxxxx@sina.com'
+        self.from_addr = 'sssssssss@sina.com'
         # 邮箱密码
-        self.password = 'xxxxxssss'
+        self.password = 'xxxxxx'
 
         # 收件人邮箱
         self.to_addr = to_addr
@@ -65,12 +66,36 @@ class Sendmail():
         server.sendmail(self.from_addr, [self.to_addr], msg.as_string())
         print '已发送'
         server.quit()
+class InputYourToEmail():
+    """
+        这个类，是为了检测你输入的邮箱地址是否符合规范
+    """
+    def input_your_email(self):
+        __author__ = '醉梦红尘'
+        flag = True
+        while flag:
+            text = raw_input("Please input your Email address：\n")
+            if re.match(r'^[0-9a-zA-Z_]{0,19}@[0-9a-zA-Z]{1,13}\.[com,cn,net]{1,3}$',text):
+            #if re.match(r'[0-9a-zA-Z_]{0,19}@163.com',text):
+                print('Email address is Right!')
+                flag = False
+                return text
+            else:
+                print('Please reset your right Email address!')
 
 if __name__ == '__main__':
 
-    toaddr = raw_input('请输入邮箱地址：')
-    sd = Sendmail(toaddr)
+    iyte = InputYourToEmail()
+    toaddr =iyte.input_your_email()
+    sd = SendEmail(toaddr)
 
     sd.subject()
-# ema.random_verification()
+
+
+
+
+
+
+
+
 
