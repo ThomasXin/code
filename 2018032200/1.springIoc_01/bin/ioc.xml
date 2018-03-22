@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 注册所有属性-->
+	<!-- 每一个bean标签就代表一个组件 -->
+	<!-- class: 全类名 -->
+	<!-- id:不能重复 -->	
+	<bean id ="person01" class="com.atxieyun.bean.Person">
+		<property name="id" value="1000"></property>
+		<property name="name" value="邪云"></property>
+		<property name="gender" value="男"></property>
+		<property name="salary" value="10000"></property>
+	</bean>
+	<!--  
+	<bean id ="person02" class="com.atxieyun.bean.Person">
+		<property name="id" value="10001"></property>
+		<property name="name" value="邪云"></property>
+		<property name="gender" value="男"></property>
+		<property name="salary" value="20000"></property>
+	</bean>
+	-->
+	<bean id ="person03" class="com.atxieyun.bean.Person">
+		<constructor-arg name="id" value="10002"></constructor-arg>
+		<constructor-arg name="name" value="枭强"></constructor-arg>
+		<constructor-arg name="gender" value="男"></constructor-arg>
+		<constructor-arg name="salary" value="9999.99"></constructor-arg>
+		
+	</bean>
+	<bean id ="person04" class="com.atxieyun.bean.Person">
+		<constructor-arg value="10002"></constructor-arg>
+		<constructor-arg value="男" index="2"></constructor-arg>
+		<constructor-arg value="枭强" index="1"></constructor-arg>
+		<constructor-arg value="9999.99"></constructor-arg>
+		
+	</bean>
+	<bean id="person05" class="com.atxieyun.bean.Person">
+		<constructor-arg value="10003"></constructor-arg>
+		<constructor-arg value="上官"></constructor-arg>
+		<constructor-arg value="29999" type="String"></constructor-arg>
+	</bean>
+
+</beans>
